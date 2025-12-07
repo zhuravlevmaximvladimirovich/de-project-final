@@ -7,7 +7,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/stg_loader" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/lib/kafka_connect" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/lib/pg" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/lib/redis_c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/stg_loader/repository" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -1,6 +1,6 @@
---drop table if EXISTS DE_FINAL_PROJECT_STAGING.сurrencies_source;
+--drop table if EXISTS DE_FINAL_PROJECT_STAGING.currencies_source;
 
-CREATE TABLE IF NOT EXISTS DE_FINAL_PROJECT_STAGING.сurrencies_source (
+CREATE TABLE IF NOT EXISTS DE_FINAL_PROJECT_STAGING.currencies_source (
     id serial PRIMARY KEY,
     date_update timestamp NOT null,
     currency_code int NOT null,

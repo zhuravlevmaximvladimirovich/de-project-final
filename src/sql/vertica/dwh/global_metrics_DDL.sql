@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS VT251201B6F661.global_metrics (
+CREATE TABLE IF NOT EXISTS VT251201B6F661__DWH.global_metrics (
     date_update DATE NOT NULL,
     currency_from NUMERIC(3) NOT NULL,
     amount_total NUMERIC(14,2) NOT NULL,

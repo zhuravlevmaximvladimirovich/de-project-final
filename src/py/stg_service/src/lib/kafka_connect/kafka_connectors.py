@@ -44,4 +44,5 @@ class KafkaConsumer:
         if msg.error():
             raise Exception(msg.error())
         val = msg.value().decode()
+        self.c.commit()
         return json.loads(val)
