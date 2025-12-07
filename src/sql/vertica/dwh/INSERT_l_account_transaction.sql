@@ -5,7 +5,7 @@ SELECT
     dt.hk_transaction_id AS hk_transaction_id,
     daf.hk_account_id AS hk_account_from_id,
     dat.hk_account_id AS hk_account_to_id,
-    '2022-10-01' AS load_dt,
+    '{{ ds }}' AS load_dt,
     'stg-service-de-final-project' AS load_src
 FROM
     VT251201B6F661__STAGING.transactions_source st
@@ -16,7 +16,7 @@ LEFT JOIN
 LEFT JOIN
     VT251201B6F661__DWH.h_transactions dt ON dt.operation_id = st.operation_id
 WHERE
-    st.transaction_dt::DATE = '2022-10-01'
+    st.transaction_dt::DATE = '{{ ds }}'
     AND (HASH(daf.hk_account_id, dat.hk_account_id, dt.hk_transaction_id) NOT IN (SELECT hk_l_account_transaction FROM VT251201B6F661__DWH.l_account_transaction))
 LIMIT
     1 OVER (PARTITION BY dt.hk_transaction_id, daf.hk_account_id, dat.hk_account_id ORDER BY st.id DESC);

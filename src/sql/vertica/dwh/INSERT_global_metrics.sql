@@ -15,7 +15,7 @@ USING (
         LEFT JOIN
             VT251201B6F661__DWH.s_currency_pair scp ON scp.hk_l_currency_pair = lcp.hk_l_currency_pair
         WHERE
-            scp.date_update = '2022-10-01' AND hcw.currency_code = 420
+            scp.date_update = '{{ ds }}'
     ),
     transactions AS (
         SELECT
@@ -37,7 +37,7 @@ USING (
         LEFT JOIN
             VT251201B6F661__DWH.s_transaction_status sts ON sts.hk_transaction_id = ht.hk_transaction_id
         WHERE
-            (ht.transaction_dt::DATE = '2022-10-01' AND sts.status = 'done')
+            (ht.transaction_dt::DATE = '{{ ds }}' AND sts.status = 'done')
             AND (ht.transaction_type IN ('c2b_partner_incoming','sbp_incoming','transfer_outgoing','sbp_outgoing','transfer_incoming','c2a_incoming'))
             AND (ha.account_number > 0 AND ha.account_number > 0)
     )
